@@ -9,7 +9,7 @@ and data from the National Institute for Environmental Studies'
 The code here is for viewing only and is not intended for re-use, but if you wish to use it, please follow these steps.
 1. Download/install Python, the required packages and Google Chrome.
 2. Download/process the National Institute for Environmental Studies data as described in asys.py.
-3. Replace the email address in temptest.py line 24 with your own.
+3. Replace the email address in temptest.py line 27 with your own.
 4. Execute asys.py, calc_epd.py and correlation.py in this order.
 Note that all the files necessary for analysis are available at the point of running calc.epd.py, so it is possible to try different analysis methods with different files from correlation.py.
 
