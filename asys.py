@@ -66,7 +66,7 @@ for csv_name in listdir(pollution_dir):
       if all(item[average_ind:average_ind+12]): pol[int(csv_name[2:6])][item[3]][int(item[11])] = [float(item[ind]) for ind in range(average_ind, average_ind+12)]
   except UnicodeDecodeError: print('Discarded: ', csv_name)
 
-# 1970-2019
+# 1980-2019
 for csv_name in sorted(listdir(observatory_dir)):
   if csv_name == '!凡例.txt': continue
   if csv_name[0] == '.': continue
