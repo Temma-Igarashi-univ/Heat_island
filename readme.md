@@ -1,13 +1,9 @@
 # 関東地方のUHIIと汚染物質のデータ解析
 
 これは、東京大学において1年次に実施される、英語での論文執筆を学ぶ授業 ALESS (Active Learning of English for Science Students)の一環で制作されたプログラムです。  
-気象庁の気温データ、および国立環境研究所の「環境展望台 大気汚染常時監視データ」「大気環境測定局データ」を使用します。(以下リンク先, 閲覧は2024年6月2日)
-
-https://www.data.jma.go.jp/stats/etrn/index.php?prec_no=&block_no=&year=&month=&day=&view=
-
-https://tenbou.nies.go.jp/download/
-
-https://www.nies.go.jp/igreen/tm_down.html
+[気象庁の気温データ](https://www.data.jma.go.jp/stats/etrn/index.php?prec_no=&block_no=&year=&month=&day=&view=)、
+および国立環境研究所の「[環境展望台 大気汚染常時監視データ](https://tenbou.nies.go.jp/download/)」
+「[大気環境測定局データ](https://www.nies.go.jp/igreen/tm_down.html)」を使用します。(閲覧は2024年6月2日)
 
 ここに掲載しているコードは閲覧用であり、再使用は想定されていませんが、ご利用になる場合は次の手順で操作を行なってください。
 1. Python, 必要なパッケージ (各ファイルの頭に記載) およびGoogle Chromeを入手する。

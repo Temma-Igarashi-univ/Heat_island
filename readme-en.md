@@ -1,13 +1,10 @@
 # Calculation of UHII / Analysis of the relationship between the UHII and Pollutant Density in Kanto Region
 
 This is a programme produced as part of ALESS (Active Learning of English for Science Students), a class for first-year undergraduates at the University of Tokyo to learn to write papers in English.  
-It uses temperature data from the Japan Meteorological Agency (JMA) and data from the National Institute for Environmental Studies' “Environmental Observatory: Air Pollution Continuous Monitoring Data” and “Atmospheric Environment Measurement Station Data”. (Links below, retrieved on 2 Jun 2024)
-
-https://www.data.jma.go.jp/stats/etrn/index.php?prec_no=&block_no=&year=&month=&day=&view=
-
-https://tenbou.nies.go.jp/download/
-
-https://www.nies.go.jp/igreen/tm_down.html
+It uses temperature [data from the Japan Meteorological Agency (JMA)](https://www.data.jma.go.jp/stats/etrn/index.php?prec_no=&block_no=&year=&month=&day=&view=) 
+and data from the National Institute for Environmental Studies' 
+“[Environmental Observatory: Air Pollution Continuous Monitoring Data](https://tenbou.nies.go.jp/download/)” and 
+“[Atmospheric Environment Measurement Station Data](https://www.nies.go.jp/igreen/tm_down.html)”. (retrieved on 2 Jun 2024)
 
 The code here is for viewing only and is not intended for re-use, but if you wish to use it, please follow these steps.
 1. Download/install Python, the required packages (listed at the beginning of each file) and Google Chrome.
