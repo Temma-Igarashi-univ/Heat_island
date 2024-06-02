@@ -6,7 +6,7 @@
 「[大気環境測定局データ](https://www.nies.go.jp/igreen/tm_down.html)」を使用します。(閲覧は2024年6月2日)
 
 ここに掲載しているコードは閲覧用であり、再使用は想定されていませんが、ご利用になる場合は次の手順で操作を行なってください。
-1. Python, 必要なパッケージ (各ファイルの頭に記載) およびGoogle Chromeを入手する。
+1. Python, 必要なパッケージおよびGoogle Chromeを入手する。
 2. asys.pyに記載の通り、国立環境研究所のデータをダウンロードし処理する。
 3. temptest.py 24行目のメールアドレスを自分のものに書き換える。
 4. asys.py, calc_epd.py, correlation.pyの順に実行する。

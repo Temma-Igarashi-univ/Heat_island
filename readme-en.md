@@ -7,7 +7,7 @@ and data from the National Institute for Environmental Studies'
 “[Atmospheric Environment Measurement Station Data](https://www.nies.go.jp/igreen/tm_down.html)”. (retrieved on 2 Jun 2024)
 
 The code here is for viewing only and is not intended for re-use, but if you wish to use it, please follow these steps.
-1. Download/install Python, the required packages (listed at the beginning of each file) and Google Chrome.
+1. Download/install Python, the required packages and Google Chrome.
 2. Download/process the National Institute for Environmental Studies data as described in asys.py.
 3. Replace the email address in temptest.py line 24 with your own.
 4. Execute asys.py, calc_epd.py and correlation.py in this order.
