@@ -31,7 +31,8 @@ class EstimatedPollutantDensity:
     # e[y, p, l] = Pollutant p's estimated data at the temperature observatory l in the year y
     # e[y, p, l, m] = Pollutant p's estimated data at the temperature observatory l in m[month]/y[year]
 
-    l = len(item)
+    try: l = len(item)
+    except: l = 1
     if l == 1: return self.epd[item]
     if l == 2: return self.epd[item[0]][item[1]]
     if l == 3: return self.epd[item[0]][item[1]][item[2]]
@@ -57,7 +58,8 @@ class Uhii:
     # u[y, l] = All UHII data at the temperature observatory l in the year y
     # u[y, l, m] = All UHII data at the temperature observatory l in m[month]/y[year]
 
-    l = len(item)
+    try: l = len(item)
+    except: l = 1
     if l == 1: return self.uhii[item]
     if l == 2: return self.uhii[item[0]][item[1]]
     if l == 3: return self.uhii[item[0]][item[1]][item[2]]

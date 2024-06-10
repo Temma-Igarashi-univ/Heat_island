@@ -9,15 +9,15 @@
 1. Python, 必要なパッケージおよびGoogle Chromeを入手する。
 2. asys.pyに記載の通り、国立環境研究所のデータをダウンロードし処理する。
 3. temptest.py 27行目のメールアドレスを自分のものに書き換える。
-4. asys.py, calc_epd.py, correlation.pyの順に実行する。
-尚、calc.epd.py実行時点で解析に必要なファイルは全て揃うので、correlation.pyと異なるファイルで異なる解析手法を試みることも可能です。
+4. asys.py, calc_epd.py, analyse.pyの順に実行する。
+尚、calc.epd.py実行時点で解析に必要なファイルは全て揃うので、analyse.pyと異なるファイルで異なる解析手法を試みることも可能です。
 
 ファイルの内容は次のとおりです。  
-asys.py: データ収集およびUHIIを計算するファイル。  
+asys.py / asys_for_team.py: データ収集およびUHIIを計算するファイル。後者はALESSにおけるチーム実験用。  
+analyse.py: 相関係数計算及びグラフプロットを行うためのファイル。  
 calc_epd.py: 汚染物質データを補間して気温観測所に対応する場所における濃度を算出するファイル。  
 constants.py: データ保持クラスを定義するファイル。  
-coord.json: 実験に使用した地点のデータを上記の気象庁のデータページより収集し使用可能な形に書き直したファイル。  
-correlation.py: 相関係数計算及びグラフプロットを行うためのファイル。  
+coord.json / coord_for_team.json: 実験に使用した地点のデータを上記の気象庁のデータページより収集し使用可能な形に書き直したファイル。後者はALESSにおけるチーム実験用。  
 readme-en.md: readme.mdの英訳。  
 readme.md: リポジトリ説明ファイル。  
 temptest.py: 気象庁サイトより平均気温をスクレイピングするためのファイル。
@@ -32,4 +32,5 @@ dill (https://github.com/uqfoundation/dill) v0.3.8
 geographiclib (https://geographiclib.sourceforge.io/Python/2.0) v2.0  
 matplotlib (https://pypi.org/project/matplotlib/) v3.9.0  
 numpy (https://numpy.org) v1.26.4  
+scikit-learn (https://scikit-learn.org) v1.5.0  
 selenium (https://www.selenium.dev) v4.21.0

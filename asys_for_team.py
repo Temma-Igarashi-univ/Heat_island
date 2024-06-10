@@ -1,4 +1,5 @@
 # importしないこと！ This file cannot be imported.
+# グループワーク用 for group research in the ALESS lesson.
 import math
 def tan(deg): return math.tan(math.radians(deg))
 def atan(val): return math.degrees(math.atan(val))
@@ -17,7 +18,7 @@ from geographiclib.geodesic import Geodesic, GeodesicCapability
 from temptest import get_table
 
 # 環境 environment
-temp_coord_file = './coord.json'
+temp_coord_file = './coord_for_team.json'
 
 # 国立環境研究所環境展望台の大気汚染常時監視データと測定局データ (関東地方分、なければ全国分) を解凍しフォルダ名を以下のように設定しこの位置におく。
 # ダウンロードするとzipファイル→txtファイルになるのですべてcsvに置き換えておく。
@@ -88,36 +89,31 @@ for csv_name in sorted(listdir(observatory_dir)):
 tmp = defaultdict(lambda: defaultdict(list))
 uhi = defaultdict(lambda: defaultdict(list))
 pln_set = set(obj.keys())
+nua_set = {'久喜', 'つくば', '牛久', '海老名', '八王子'}
+ura_set = pln_set - nua_set
 
 # 気温データ収集 (1980-2019) Temperature data collection (1980-2019)
 if len(argv) > 1 and argv[1] != 'no-collection' or len(argv) == 1:
   for year in range(1980, 2020):
     for num in range(40, 47):
       for name, dat12 in get_table(num, year):
-        if name == '那須': name = '那須高原'
         for objective in pln_set:
-          if objective in name or name in objective:
+          if name in objective or objective in name:
             tmp[year][objective] = dat12 + obj[objective]['height'] * 5.5e-3
             break
 else:
   with open('./data.pkl', 'rb') as f: data = load(f)
   tmp = data['tmp']
 
-orders = sorted([(sum([sum(tmp[year][nme]) for year in range(1980, 2020)]), nme) for nme in tmp[2019].keys()])
-nua_set = set(item for _, item in orders[:5]) # 成田, 土呂部, 日光東町, 藤原, 大子
-ura_set = pln_set - nua_set
-
 def calc_uhii(place, year):
   main_place = tmp[year][place]
   nu_factors = [tmp[year][name] for name in nua_set if bool(list(tmp[year].get(name)))]
-  return [sum([max(0, main_place[i]-nu_factor[i]) for nu_factor in nu_factors])/len(nu_factors) for i in range(12)]
+  return [sum([main_place[i]-nu_factor[i] for nu_factor in nu_factors])/len(nu_factors) for i in range(12)]
   
 for year in range(1980, 2020):
   for place in ura_set:
     try: uhi[year][place] = calc_uhii(place, year)
-    except Exception as e: print(f'Discarded (UHII): {year}, {place} ({e})')
+    except: print(f'Discarded (UHII): {year}, {place}')
 
-pickle_object = {'tmp': tmp, 'uhi': uhi, 'ura_set': ura_set, 'obs': obs, 'obj': obj, 'pol': pol, 'calc_dist': calc_dist, 'ord': orders}
+pickle_object = {'tmp': tmp, 'uhi': uhi, 'ura_set': ura_set, 'obs': obs, 'obj': obj, 'pol': pol, 'calc_dist': calc_dist}
 with open('./data.pkl', 'wb') as f: dump(pickle_object, f)
-
-print(nua_set)

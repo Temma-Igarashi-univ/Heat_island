@@ -35,7 +35,8 @@ def get_table(place, year):
     items = parser.find_all('tr', {'class':'mtx'})
     itemh = [[str(item).replace('<th>', '').replace('</th>', '') for item in itemholder.find_all('th')[1:]] for itemholder in items][0]
     itemd = [
-      [float(re.sub(r"[^\d.]", "", str(item).replace('<td class="data_0_0">', '').replace('</td>', ''))) \
+      [float(['', '-']['-' in str(item)] + re.sub(r"[^\d.]", "",
+        str(item).replace('_0', '').replace('_1', '').replace('</td>', '').replace('///', '999').replace('×', '999')).replace('999', 'inf')) \
         for item in itemholder.find_all('td')[1:]] \
         for itemholder in items
     ][1:]

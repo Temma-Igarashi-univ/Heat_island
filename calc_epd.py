@@ -30,7 +30,7 @@ def predict_density(year, pol_name):
         nume[mon+3] += (calc_dist(la, lo, vla, vlo) / 10000)**-1 * pol[year][pol_name][k][mon]
         deno[mon+3] += (calc_dist(la, lo, vla, vlo) / 10000)**-1
     ret[place] = nume / deno
-  print(1,end= '', flush = True)
+  print('*', end =  '', flush = True)
   return ret
 
 pol_names = {'NMHC', 'CO', 'NO2', 'PM25', 'THC', 'SPM', 'SO2', 'NOX', 'CH4', 'OX', 'NO'}

@@ -10,15 +10,15 @@ The code here is for viewing only and is not intended for re-use, but if you wis
 1. Download/install Python, the required packages and Google Chrome.
 2. Download/process the National Institute for Environmental Studies data as described in asys.py.
 3. Replace the email address in temptest.py line 27 with your own.
-4. Execute asys.py, calc_epd.py and correlation.py in this order.
-Note that all the files necessary for analysis are available at the point of running calc.epd.py, so it is possible to try different analysis methods with different files from correlation.py.
+4. Execute asys.py, calc_epd.py and analyse.py in this order.
+Note that all the files necessary for analysis are available at the point of running calc.epd.py, so it is possible to try different analysis methods with different files from analyse.py.
 
 The files are as follows.  
-asys.py: file for collecting data and calculating UHII.  
+asys.py / asys_for_team.py: file for collecting data and calculating UHII. ("for_team" file is for the team data analysis in the ALESS class.)  
+analyse.py: file for calculating correlation coefficients and plotting graphs.  
 calc_epd.py: file for interpolating pollutant data and calculating concentrations at locations corresponding to temperature stations.  
 constants.py: file defining the data retention classes.  
-coord.json: file in which the data for the locations used in the experiment were collected from the JMA data page mentioned above and rewritten in a usable form.  
-correlation.py: file for calculating correlation coefficients and plotting graphs.  
+coord.json / coord_for_team.json: file in which the data for the locations used in the experiment were collected from the JMA data page mentioned above and rewritten in a usable form. ("for_team" file is for the team data analysis in the ALESS class.)  
 readme-en.md: English translation of readme.md.  
 readme.md: repository description file.  
 temptest.py: file for scraping average temperatures from the JMA website.
@@ -33,4 +33,5 @@ dill (https://github.com/uqfoundation/dill) v0.3.8
 geographiclib (https://geographiclib.sourceforge.io/Python/2.0) v2.0  
 matplotlib (https://pypi.org/project/matplotlib/) v3.9.0  
 numpy (https://numpy.org) v1.26.4  
+scikit-learn (https://scikit-learn.org) v1.5.0  
 selenium (https://www.selenium.dev) v4.21.0

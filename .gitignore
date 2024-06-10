@@ -1,4 +1,8 @@
 *.png
 *.pkl
+csv_converter.py
+
 __pycache__/
+csv/
 env/
+graphs/
