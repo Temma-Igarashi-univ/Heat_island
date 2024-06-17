@@ -33,7 +33,7 @@ def predict_density(year, pol_name):
   print('*', end =  '', flush = True)
   return ret
 
-pol_names = {'NMHC', 'CO', 'NO2', 'PM25', 'THC', 'SPM', 'SO2', 'NOX', 'CH4', 'OX', 'NO'}
+pol_names = {'NMHC', 'CO', 'NO2', 'PM25', 'THC', 'SP', 'SPM', 'SO2', 'NOX', 'CH4', 'OX', 'NO'}
 
 def multi_epd_calculator(year):
   return year, {pol_name: predict_density(year, pol_name) for pol_name in pol_names}

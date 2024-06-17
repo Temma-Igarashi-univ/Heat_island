@@ -5,11 +5,11 @@ with open('./epd.pkl', 'rb') as f: _EPD = load(f)
 with open('./data.pkl', 'rb') as f: data = load(f)
 _UHI = data['uhi']
 URBAN_AREA_NAMESET = data['ura_set']
-POLLUTANT_NAMES = {'NMHC', 'CO', 'NO2', 'PM25', 'THC', 'SPM', 'SO2', 'NOX', 'CH4', 'OX', 'NO'}
+POLLUTANT_NAMES = {'NMHC', 'CO', 'NO2', 'PM25', 'THC', 'SP', 'SPM', 'SO2', 'NOX', 'CH4', 'OX', 'NO'}
 UNITS = {
   'SO2':'ppm', 'NO':'ppm', 'NO2':'ppm', 'NOX':'ppm',
   'CO':'ppm', 'OX':'ppm', 'NMHC':'ppmC', 'CH4':'ppmC',
-  'THC':'ppmC', 'SPM':'mg \\ m^{-3}', 'PM25':'\\mu g \\ m^{-3}', 
+  'THC':'ppmC', 'SPM':'mg \\ m^{-3}', 'SP':'mg \\ m^{-3}', 'PM25':'\\mu g \\ m^{-3}', 
 }
 
 # numpy-like expression
