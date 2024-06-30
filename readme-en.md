@@ -34,4 +34,5 @@ geographiclib (https://geographiclib.sourceforge.io/Python/2.0) v2.0
 matplotlib (https://pypi.org/project/matplotlib/) v3.9.0  
 numpy (https://numpy.org) v1.26.4  
 scikit-learn (https://scikit-learn.org) v1.5.0  
+scipy (https://scipy.org/) v1.13.0  
 selenium (https://www.selenium.dev) v4.21.0

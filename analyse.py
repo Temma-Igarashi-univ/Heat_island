@@ -1,5 +1,6 @@
 from matplotlib.pyplot import *
 import numpy as np
+from scipy.stats import pearsonr
 from sklearn.ensemble import IsolationForest
 from collections import defaultdict, deque
 from warnings import simplefilter
@@ -22,7 +23,7 @@ rcParams['mathtext.fontset'] = 'stix'
 
 simplefilter('ignore', UserWarning)
 
-for pol_index in range(11,12):
+for pol_index in range(12):
   target = POLLUTANT_NAMES[pol_index]
   print(f'Target: {target}')
   # 月別 monthly
@@ -63,8 +64,10 @@ for pol_index in range(11,12):
       ax[i, j].set_ylabel('UHII')
       try:
         (a, b), rss, _, _, _ = np.polyfit(xr, yr, 1, full = True)
-        ax[i, j].plot(x, np.poly1d((a, b))(x), label = f'$x={nf(a)}y+{nf(b)}$', color = '#ff0000')
-        ax[i, j].plot([min(x)], [min(y)], label = f'$r={np.corrcoef(yr, xr)[0, 1]: .6f}$\n$\\delta={nf(((rss/sum((x-np.mean(x))**2)/(len(x)-2))**.5)[0])}$ ({len(xr)}/{len(x)} data)', color = '#ffffff')
+        corr, p = pearsonr(xr, yr)
+        print(f'{corr:.5f}m'.replace('0.', '.'))
+        ax[i, j].plot(x, np.poly1d((a, b))(x), label = f'$y={nf(a)}x+{nf(b)}$'.replace('+-', '-'), color = '#ff0000')
+        ax[i, j].plot([min(x)], [min(y)], label = f'$r={corr:.6f}$\n$p={p:.4f}$ ({len(xr)}/{len(x)} data)', color = '#ffffff')
       except: pass
       ax[i, j].legend(loc = 'upper center', bbox_to_anchor = (.5, -.25), handlelength = .5)
   fig.savefig(f'./graphs/monthly_plot_{target}.png', dpi = 720, pad_inches = .05)
@@ -109,8 +112,10 @@ for pol_index in range(11,12):
       ax[i, j].set_ylabel('UHII')
       try:
         (a, b), rss, _, _, _ = np.polyfit(xr, yr, 1, full = True)
-        ax[i, j].plot(x, np.poly1d((a, b))(x), label = f'$x={nf(a)}y+{nf(b)}$', color = '#ff0000')
-        ax[i, j].plot([min(x)], [min(y)], label = f'$r={np.corrcoef(yr, xr)[0, 1]: .6f}$\n$\\delta={nf(((rss/sum((x-np.mean(x))**2)/(len(x)-2))**.5)[0])}$ ({len(xr)}/{len(x)} data)', color = '#ffffff')
+        corr, p = pearsonr(xr, yr)
+        print(f'{corr:.5f}y'.replace('0.', '.'))
+        ax[i, j].plot(x, np.poly1d((a, b))(x), label = f'$y={nf(a)}x+{nf(b)}$'.replace('+-', '-'), color = '#ff0000')
+        ax[i, j].plot([min(x)], [min(y)], label = f'$r={corr:.6f}$\n$p={p:.4f}$ ({len(xr)}/{len(x)} data)', color = '#ffffff')
       except: pass
       ax[i, j].legend(loc = 'upper center', bbox_to_anchor = (.5, -.25), handlelength = .5)
   fig.savefig(f'./graphs/yearly_plot_{target}.png', dpi = 720, pad_inches = .05)

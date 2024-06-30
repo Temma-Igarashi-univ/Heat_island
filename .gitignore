@@ -1,8 +1,10 @@
 *.png
 *.pkl
 csv_converter.py
+.analyse_for_team.py
 
 __pycache__/
 csv/
 env/
 graphs/
+team_graphs/
